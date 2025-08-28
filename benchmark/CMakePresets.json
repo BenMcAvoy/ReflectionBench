@@ -1,0 +1,24 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "vs-2022-vcpkg",
+      "displayName": "VS 2022 (x64)",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "build-vs",
+      "cacheVariables": {}
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vs-2022-release",
+      "configurePreset": "vs-2022-vcpkg",
+      "configuration": "Release"
+    }
+  ]
+}

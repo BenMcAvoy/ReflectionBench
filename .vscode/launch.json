@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch meta_bench (VS Release)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}\\benchmark\\build-vs\\Release\\meta_bench.exe",
+      "cwd": "${workspaceFolder}\\benchmark",
+      "console": "integratedTerminal"
+    }
+  ]
+}
