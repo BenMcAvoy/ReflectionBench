@@ -23,9 +23,18 @@ else()
 	endif()
 endif()
 
-# vcpkg manifest mode will install these automatically when the toolchain is used
+# This is from VCPKG
 find_package(rttr CONFIG REQUIRED)
-find_package(entt CONFIG REQUIRED)
+
+# Download WIP branch of EnTT for new optimisations
+include(FetchContent)
+FetchContent_Declare(
+	entt
+	GIT_REPOSITORY https://github.com/skypjack/entt.git
+	GIT_TAG wip
+	GIT_SHALLOW TRUE # dont download loads of extra stuff
+)
+FetchContent_MakeAvailable(entt)
 
 add_executable(meta_bench
 	src/main.cpp
@@ -64,9 +73,9 @@ if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
 	set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "RelWithDebInfo" "MinSizeRel")
 endif()
 
-# Install rule (local staging)
+# Install rule (local staging if desired, optional)
 install(TARGETS meta_bench RUNTIME DESTINATION .)
 
-# Enable compile_commands.json where supported (useful for IDEs)
+# Enable compile_commands.json where supported (useful for IDEs, LSP specifically)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 

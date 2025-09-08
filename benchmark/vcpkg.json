@@ -2,7 +2,7 @@
   "name": "meta-bench",
   "version-string": "0.1.0",
   "dependencies": [
-    { "name": "rttr" },
-    { "name": "entt" }
+    "rttr",
+    "nlohmann-json"
   ]
 }
